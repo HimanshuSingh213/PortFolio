@@ -1,6 +1,29 @@
 export const projects = [
   {
     id: "01",
+    title: "Anvaya Lab",
+    category: "Featured • Full Stack API Client",
+    repoName: "Anvaya-Lab",
+    description:
+      "A secure, sandbox-first developer API testing client featuring client-side environment variables isolation, dual-execution proxy routing, dynamic syntax resolution, and a professional workspace settings engine.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Mongoose",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "Driver.js"
+    ],
+    image: "/anvaya-lab.png",
+    code: "https://github.com/HimanshuSingh213/Anvaya-Lab",
+    live: "https://anvaya-lab.vercel.app/",
+  },
+
+  {
+    id: "02",
     title: "Vidyavriksha",
     category: "Featured • Full Stack Platform",
     repoName: "Vidyavriksha",
@@ -8,7 +31,6 @@ export const projects = [
       "A full-stack academic analytics platform built to help engineering students track semester performance, calculate target GPA/CGPA, and visualize academic progress through an interactive dashboard.",
     tech: [
       "Next.js",
-      "TypeScript",
       "React",
       "Node.js",
       "MongoDB",
@@ -23,7 +45,7 @@ export const projects = [
   },
 
   {
-    id: "02",
+    id: "03",
     title: "Inside Campus",
     category: "Featured • Team Lead • Hackathon",
     repoName: "inside-campus",
@@ -42,7 +64,7 @@ export const projects = [
   },
 
   {
-    id: "03",
+    id: "04",
     title: "Sutra Ecom",
     category: "Featured • MERN E-Commerce",
     repoName: "Sutra-MyECom-Website",
@@ -65,7 +87,7 @@ export const projects = [
   },
 
   {
-    id: "04",
+    id: "05",
     title: "TVGF Website",
     category: "Client Project",
     repoName: "TVGF_Testing",
@@ -85,7 +107,7 @@ export const projects = [
   },
 
   {
-    id: "05",
+    id: "06",
     title: "Portfolio Website",
     category: "Personal Portfolio",
     repoName: "PortFolio",
@@ -96,7 +118,6 @@ export const projects = [
       "Vite",
       "Tailwind CSS",
       "Framer Motion",
-      "Three.js",
       "React Router",
       "React Icons"
     ],
@@ -106,7 +127,7 @@ export const projects = [
   },
 
   {
-    id: "06",
+    id: "07",
     title: "Weather App",
     category: "API Integration",
     repoName: "Weather-App",
@@ -124,7 +145,7 @@ export const projects = [
   },
 
   {
-    id: "07",
+    id: "08",
     title: "PostFinder",
     category: "JavaScript Project",
     repoName: "Post-Finder",
