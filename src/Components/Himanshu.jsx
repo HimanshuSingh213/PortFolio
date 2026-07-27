@@ -393,7 +393,7 @@ function PatternSelector() {
     return (
         <>
             <ProfilePoster pattern={active} />
-            <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-transparent p-1 rounded-md grid grid-cols-3 gap-1">
+            <div className="hidden md:grid absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-transparent p-1 rounded-md grid-cols-3 gap-1">
                 <button onClick={() => handleClick("Dots Grid")}
                     className={`${active === "Dots Grid" ? "bg-white text-black" : "text-white/50 hover:bg-white/5 hover:text-white"} p-1.5 rounded-md border transition-all bg-transparent border-transparent `} title="Dots Grid">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="2" cy="2" r="1"></circle><circle cx="6" cy="2" r="1"></circle><circle cx="10" cy="2" r="1"></circle><circle cx="2" cy="6" r="1"></circle><circle cx="6" cy="6" r="1"></circle><circle cx="10" cy="6" r="1"></circle><circle cx="2" cy="10" r="1"></circle><circle cx="6" cy="10" r="1"></circle><circle cx="10" cy="10" r="1"></circle></svg>
@@ -621,8 +621,8 @@ function Himanshu() {
                 {/* Main site */}
                 <div className='container mx-auto lg:max-w-5xl max-w-screen min-h-screen px-4 lg:p-0'>
                     {/* BG - Poster */}
-                    <div className='md:h-[250px] h-[150px]'>
-                        <div className='w-full h-full flex justify-start relative group'>
+                    <div className='md:h-62.5 h-37.5 -mx-4 lg:mx-0 overflow-hidden'>
+                        <div className='w-full h-full flex justify-start relative group scale-125 md:scale-100 origin-[25%_50%] transition-transform duration-300'>
 
                             <PatternSelector />
 
@@ -662,24 +662,24 @@ function Himanshu() {
                         <h1 className='text-4xl text-neutral-700 font-geist font-semibold relative w-fit'>About Me<span className='h-px w-1/3 bg-neutral-400 absolute bottom-0 left-0'></span></h1>
                         <p className='text-lg text-neutral-500'>I’m <span className='font-space text-neutral-300'>Himanshu Singh Dangi</span>, a frontend-focused developer who enjoys building clean and
 
-                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>simple<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-[2px] left-[-4px] bottom-0 right-[-4px] opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
+                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>simple<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-0.5 -left-1 bottom-0 -right-1 opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
                             </span>
 
                             web experiences. I like turning ideas into
 
-                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>real products<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-[2px] left-[-4px] bottom-0 right-[-4px] opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
+                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>real products<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-0.5 -left-1 bottom-0 -right-1 opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
                             </span>
 
                             with attention to user interface, motion, and the
 
-                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>small details<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-[2px] left-[-4px] bottom-0 right-[-4px] opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
+                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>small details<span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-0.5 -left-1 bottom-0 -right-1 opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
                             </span>
 
 
                             that make things feel right. I learn by building projects,
 
 
-                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>experimenting <span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-[2px] left-[-4px] bottom-0 right-[-4px] opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
+                            <span className='relative mx-1 whitespace-nowrap w-full z-30 text-neutral-200 font-space font-medium'>experimenting <span className="absolute -inset-1 z-10 block select-none text-yellow-600 top-0.5 -left-1 bottom-0 -right-1 opacity-70 mix-blend-screen"><svg viewBox="0 0 200 80" preserveAspectRatio="none" className="w-full h-full fill-current"><path d="M195.5,23.3c-28.7-3.4-60.8-2-89.5,4.7c-26.6,6.2-46.6,18.9-38.3,27.3c6.8,6.8,32.6,3.6,58-7.2c28.3-12,56.8-24.9,46.2-31.9C159.2,7.3,124,19.9,90.4,32.2c-49.8,18.2-86.4,19.9-105.7,5C-30,22,17.4,10.9,76.5,8.8c42.1-1.5,89.5,4.4,118.9,14.5"></path></svg></span>
                             </span>
 
                             , and improving with every iteration.</p>
@@ -1266,7 +1266,7 @@ function Himanshu() {
                                             className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16 w-full group`}
                                         >
                                             {/* Image Showcase Container */}
-                                            <div className="relative w-full lg:w-1/2 min-h-[220px] sm:min-h-[280px] md:min-h-[340px] rounded-3xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-950/60 overflow-hidden flex items-center justify-center p-6 md:p-12 transition-all duration-500 shadow-2xl shadow-black/50 hover:border-neutral-800 group/img">
+                                            <div className="relative w-full lg:w-1/2 min-h-55 sm:min-h-70 md:min-h-85 rounded-3xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-950/60 overflow-hidden flex items-center justify-center p-6 md:p-12 transition-all duration-500 shadow-2xl shadow-black/50 hover:border-neutral-800 group/img">
                                                 {/* Radial glow background on hover */}
                                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.05)_0%,transparent_70%)] opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 pointer-events-none" />
                                                 
@@ -1281,7 +1281,7 @@ function Himanshu() {
                                                 <motion.img
                                                     whileHover={{ scale: 1.05, rotate: isEven ? 1 : -1 }}
                                                     transition={{ duration: 0.2, ease: "easeOut" }}
-                                                    className="max-h-[160px] sm:max-h-[200px] md:max-h-[240px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] group-hover/img:drop-shadow-[0_20px_40px_rgba(245,158,11,0.15)] transition-all duration-300 select-none"
+                                                    className="max-h-40 sm:max-h-50 md:max-h-60 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] group-hover/img:drop-shadow-[0_20px_40px_rgba(245,158,11,0.15)] transition-all duration-300 select-none"
                                                     src={project.image}
                                                     alt={`${project.title} logo`}
                                                     onError={(e) => {
@@ -1482,7 +1482,7 @@ function Himanshu() {
                     </footer>
 
                     {/* Dock */}
-                    <div className="fixed bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-40 pointer-events-none">
+                    <div className="fixed bottom-0 left-0 right-0 h-32 bg-linear-to-t from-neutral-950 via-neutral-950/80 to-transparent z-40 pointer-events-none">
                     </div>
                     <AnimatePresence>
                         {done && <MagneticDock />}
