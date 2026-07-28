@@ -24,6 +24,31 @@ export const projects = [
 
   {
     id: "02",
+    title: "DevToolkit AI",
+    category: "Featured • AI Developer Toolkit",
+    repoName: "DevToolkit-AI",
+    description:
+      "An AI-powered developer toolkit offering intelligent utilities like README generation, commit message creation, regex assistance, and JSON formatting through a clean, modern SaaS workspace.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Mongoose",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "Google Gemini API",
+      "Groq API",
+      "Zod"
+    ],
+    image: "/devtoolkit-ai.png",
+    code: "https://github.com/HimanshuSingh213/DevToolkit-AI",
+    live: "https://dev-toolkit-ai.vercel.app",
+  },
+
+  {
+    id: "03",
     title: "Vidyavriksha",
     category: "Featured • Full Stack Platform",
     repoName: "Vidyavriksha",
@@ -45,7 +70,7 @@ export const projects = [
   },
 
   {
-    id: "03",
+    id: "04",
     title: "Inside Campus",
     category: "Featured • Team Lead • Hackathon",
     repoName: "inside-campus",
@@ -64,7 +89,7 @@ export const projects = [
   },
 
   {
-    id: "04",
+    id: "05",
     title: "Sutra Ecom",
     category: "Featured • MERN E-Commerce",
     repoName: "Sutra-MyECom-Website",
@@ -87,7 +112,7 @@ export const projects = [
   },
 
   {
-    id: "05",
+    id: "06",
     title: "TVGF Website",
     category: "Client Project",
     repoName: "TVGF_Testing",
@@ -107,7 +132,7 @@ export const projects = [
   },
 
   {
-    id: "06",
+    id: "07",
     title: "Portfolio Website",
     category: "Personal Portfolio",
     repoName: "PortFolio",
@@ -127,7 +152,7 @@ export const projects = [
   },
 
   {
-    id: "07",
+    id: "08",
     title: "Weather App",
     category: "API Integration",
     repoName: "Weather-App",
@@ -145,7 +170,7 @@ export const projects = [
   },
 
   {
-    id: "08",
+    id: "09",
     title: "PostFinder",
     category: "JavaScript Project",
     repoName: "Post-Finder",
