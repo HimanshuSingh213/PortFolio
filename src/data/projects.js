@@ -1,6 +1,29 @@
 export const projects = [
   {
     id: "01",
+    title: "Anviksha",
+    category: "Featured • Academic Analytics Suite",
+    repoName: "anviksha",
+    description:
+      "A modern GGSIPU result wrapper & academic analytics platform that transforms raw university portal data into actionable intelligence with Ordinance 11 SGPA/CGPA calculations, promotion risk monitoring, placement gatekeeper metrics, and zero-storage transcript exports.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Zustand",
+      "Framer Motion",
+      "Recharts",
+      "Cheerio",
+      "jspdf"
+    ],
+    image: "/anviksha.png",
+    code: "https://github.com/HimanshuSingh213/anviksha",
+    live: "https://anviksha-result.vercel.app/",
+  },
+
+  {
+    id: "02",
     title: "Anvaya Lab",
     category: "Featured • Full Stack API Client",
     repoName: "Anvaya-Lab",
@@ -23,7 +46,7 @@ export const projects = [
   },
 
   {
-    id: "02",
+    id: "03",
     title: "DevToolkit AI",
     category: "Featured • AI Developer Toolkit",
     repoName: "DevToolkit-AI",
@@ -48,7 +71,7 @@ export const projects = [
   },
 
   {
-    id: "03",
+    id: "04",
     title: "Vidyavriksha",
     category: "Featured • Full Stack Platform",
     repoName: "Vidyavriksha",
@@ -70,7 +93,7 @@ export const projects = [
   },
 
   {
-    id: "04",
+    id: "05",
     title: "Inside Campus",
     category: "Featured • Team Lead • Hackathon",
     repoName: "inside-campus",
@@ -89,7 +112,7 @@ export const projects = [
   },
 
   {
-    id: "05",
+    id: "06",
     title: "Sutra Ecom",
     category: "Featured • MERN E-Commerce",
     repoName: "Sutra-MyECom-Website",
@@ -112,7 +135,7 @@ export const projects = [
   },
 
   {
-    id: "06",
+    id: "07",
     title: "TVGF Website",
     category: "Client Project",
     repoName: "TVGF_Testing",
@@ -132,7 +155,7 @@ export const projects = [
   },
 
   {
-    id: "07",
+    id: "08",
     title: "Portfolio Website",
     category: "Personal Portfolio",
     repoName: "PortFolio",
@@ -148,11 +171,11 @@ export const projects = [
     ],
     image: "https://pbs.twimg.com/profile_images/1956445565006295040/cumepmWE_400x400.jpg",
     code: "https://github.com/HimanshuSingh213/PortFolio",
-    live: "https://portfolio-gules-two-28.vercel.app/",
+    live: "https://himanshusinghdangi.vercel.app/",
   },
 
   {
-    id: "08",
+    id: "09",
     title: "Weather App",
     category: "API Integration",
     repoName: "Weather-App",
@@ -170,7 +193,7 @@ export const projects = [
   },
 
   {
-    id: "09",
+    id: "10",
     title: "PostFinder",
     category: "JavaScript Project",
     repoName: "Post-Finder",
