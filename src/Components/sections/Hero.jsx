@@ -1,21 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PatternSelector } from '../common/PatternSelector';
 import { TextCarousel } from '../common/TextCarousel';
+import { FileText, ArrowUpRight, MapPin } from 'lucide-react';
+import { siteConfig } from '../../config/site';
+import { useResume } from '../../context/ResumeContext';
 
 export function Hero() {
+    const { openResume } = useResume();
+    const [time, setTime] = useState("");
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+            });
+            setTime(timeStr);
+        };
+
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
-            {/* BG - Poster */}
             <div className='md:h-62.5 h-37.5 -mx-4 lg:mx-0 overflow-hidden'>
-                <div className='w-full h-full flex justify-start relative group scale-125 md:scale-100 origin-[25%_50%] transition-transform duration-300'>
+                <div className='w-full h-full flex justify-start relative group scale-125 md:scale-100 origin-top-left transition-transform duration-300'>
                     <PatternSelector />
                 </div>
             </div>
 
-            {/* Name */}
             <div className='flex w-full relative -top-12.5 gap-1 flex-col lg:flex-row'>
                 <img
-                    className='size-25 rounded-full'
+                    className='size-25 rounded-full border-2 border-neutral-900 shadow-xl'
                     src="https://pbs.twimg.com/profile_images/1956445565006295040/cumepmWE_400x400.jpg"
                     alt="dp"
                 />
@@ -39,8 +61,39 @@ export function Hero() {
                 </div>
             </div>
 
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-mono text-neutral-400 relative -top-8 mb-2">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-900/60 border border-neutral-800/80">
+                    <MapPin className="w-3 h-3 text-amber-500" />
+                    <span>New Delhi, IN</span>
+                    {time && (
+                        <>
+                            <span className="text-neutral-600">•</span>
+                            <span className="text-neutral-300 font-mono">{time} IST</span>
+                        </>
+                    )}
+                </div>
+
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-900/60 border border-neutral-800/80">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                    <span className="text-neutral-300">Open to Opportunities</span>
+                </div>
+
+                <a
+                    href={siteConfig.resumeUrl}
+                    onClick={openResume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-neutral-900/60 hover:bg-neutral-800 border border-neutral-800/80 hover:border-neutral-700 text-neutral-300 hover:text-white transition-all duration-200 cursor-pointer"
+                    title="View / Download Resume"
+                >
+                    <FileText className="w-3 h-3 text-amber-400" />
+                    <span>Resume</span>
+                    <ArrowUpRight className="w-3 h-3 text-neutral-500" />
+                </a>
+            </div>
+
             <div className='lg:w-6/12 w-full sm:w-full relative -top-6'>
-                <h3 className='text-sm text-neutral-400 font-inter'>
+                <h3 className='text-sm text-neutral-400 font-inter leading-relaxed'>
                     Building <span className='font-geist text-neutral-100 text-sm'>Interactive Web Applications</span> with a focus on <span className='font-geist text-neutral-100 text-sm'>Performance</span> and <span className='font-geist text-neutral-100 text-sm'>Clean Implementation</span>.
                     Working with <span className='font-geist text-neutral-100 text-sm capitalize'>modern frontend</span> tools to create reliable, <span className='font-geist text-neutral-100 text-sm'>Scalable Interfaces</span>.
                 </h3>

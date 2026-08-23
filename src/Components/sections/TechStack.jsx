@@ -20,26 +20,26 @@ export function TechStack() {
                 </div>
 
                 {/* Right Skills Column */}
-                <div className="right lg:ml-10 w-full lg:w-2/3 flex flex-col gap-10">
+                <div className="right lg:ml-10 w-full lg:w-2/3 flex flex-col gap-8 md:gap-10">
                     {/* 01 Frontend Architecture */}
                     <div className="frontend">
                         <div className="header flex flex-col">
                             <div className='flex flex-row gap-2 items-center lg:justify-start'>
                                 <p className='text-xs text-amber-500 font-inter'>01</p>
-                                <h1 className='lg:text-3xl text-2xl font-light font-space text-white'>Frontend Architecture</h1>
+                                <h1 className='lg:text-3xl text-xl sm:text-2xl font-light font-space text-white'>Frontend Architecture</h1>
                             </div>
-                            <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full mb-5'></div>
+                            <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full mb-4 md:mb-5'></div>
                         </div>
                         
-                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
+                        <div className='grid grid-cols-2 gap-3 sm:gap-4 md:gap-5'>
                             {/* 1. JavaScript */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREYSCALE */}
                                             <svg
-                                                className="absolute inset-0 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+                                                className="absolute inset-0 transition-opacity duration-300 opacity-0 md:opacity-100 md:group-hover:opacity-0"
                                                 viewBox="0 0 256 256"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -52,7 +52,7 @@ export function TechStack() {
 
                                             {/* COLORED */}
                                             <svg
-                                                className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                                                className="absolute inset-0 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
                                                 viewBox="0 0 256 256"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -64,23 +64,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>JavaScript</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>JavaScript</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">ES6+</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 2. TypeScript */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 256 256"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -104,7 +103,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 256 256"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -126,23 +125,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>TypeScript</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>TypeScript</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Structural Typing</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 3. React.js */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 -14 256 256"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -155,7 +153,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 -14 256 256"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -166,23 +164,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>React.js</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>React.js</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">v19+, Server Components</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 4. Next.js */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -194,7 +191,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -204,23 +201,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Next.js</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Next.js</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">App Router</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 5. Tailwind CSS */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY / DULL (default) */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -232,7 +228,7 @@ export function TechStack() {
                                             {/* FULL COLOR (hover) */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -242,23 +238,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Tailwind CSS</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Tailwind CSS</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Design Systems</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 6. Framer Motion */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -270,7 +265,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -280,23 +275,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Framer Motion</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Framer Motion</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Complex Animations</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 7. Zustand */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path d="M19.5 7.05a3 3 0 0 0-2.85-2.04c-.38 0-.75.08-1.09.23A5.96 5.96 0 0 0 12 4a5.96 5.96 0 0 0-3.56 1.24 3 3 0 0 0-3.94 1.81 3 3 0 0 0 .69 3.08A6 6 0 0 0 4 14c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6a5.98 5.98 0 0 0-1.19-3.87 3 3 0 0 0 .69-3.08Z" fill="#6b7280" />
@@ -311,7 +305,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path d="M19.5 7.05a3 3 0 0 0-2.85-2.04c-.38 0-.75.08-1.09.23A5.96 5.96 0 0 0 12 4a5.96 5.96 0 0 0-3.56 1.24 3 3 0 0 0-3.94 1.81 3 3 0 0 0 .69 3.08A6 6 0 0 0 4 14c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6a5.98 5.98 0 0 0-1.19-3.87 3 3 0 0 0 .69-3.08Z" fill="#443E38" />
@@ -324,23 +318,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zustand</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zustand</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">State Management</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 8. Recharts */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 fill="none"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -351,7 +344,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 fill="none"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -363,12 +356,11 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Recharts</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Recharts</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Data Visualization</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
                         </div>
                     </div>
@@ -378,21 +370,21 @@ export function TechStack() {
                         <div className="header flex flex-col">
                             <div className='flex flex-row gap-2 items-center justify-start'>
                                 <p className='text-xs text-amber-500 font-inter'>02</p>
-                                <h1 className='lg:text-3xl text-2xl font-light font-space text-white'>Backend & Data</h1>
+                                <h1 className='lg:text-3xl text-xl sm:text-2xl font-light font-space text-white'>Backend & Data</h1>
                             </div>
-                            <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full mb-5'></div>
+                            <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full mb-4 md:mb-5'></div>
                         </div>
 
-                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
+                        <div className='grid grid-cols-2 gap-3 sm:gap-4 md:gap-5'>
                             {/* 1. Node.js */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="-16.5 0 289 289"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -405,7 +397,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="-16.5 0 289 289"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 preserveAspectRatio="xMidYMid"
                                             >
@@ -416,23 +408,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Node.js</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Node.js</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Runtime</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 2. Express.js */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 role="img"
                                             >
@@ -445,7 +436,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 role="img"
                                             >
@@ -456,23 +447,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Express.js</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Express.js</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">API Development</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 3. Python */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -488,7 +478,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <defs>
@@ -519,23 +509,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Python</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Python</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Scripting & AI</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 4. MongoDB */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -555,7 +544,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 32 32"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <defs>
@@ -623,23 +612,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>MongoDB</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>MongoDB</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Document Store</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 5. AI & LLMs (Official Google Gemini 4-point sparkle brand vector) */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
@@ -651,7 +639,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <defs>
@@ -669,23 +657,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>AI & LLMs</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>AI & LLMs</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Gemini & Groq</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 6. Auth.js (Official Auth.js Shield + Key vector) */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.66 0 3 1.34 3 3 0 1.13-.63 2.11-1.56 2.62L15 15l-1.5 1.5L12 15l-1.5 1.5L9 15l1.56-2.38C9.63 12.11 9 11.13 9 10c0-1.66 1.34-3 3-3z" fill="#6b7280" />
@@ -694,7 +681,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <defs>
@@ -710,23 +697,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Auth.js</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Auth.js</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Authentication</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 7. Zod (Official Colin McDonnell Diamond Zod Vector) */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 256 203"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path fill="#4b5563" d="M200.42 0H53.63L0 53.355l121.76 146.624l9.714-10.9L252 53.857zm-5.362 12.562l39.84 41.6l-112.8 126.558L17 54.162l41.815-41.6z"/>
@@ -736,7 +722,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 256 203"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path fill="#274C77" d="M200.42 0H53.63L0 53.355l121.76 146.624l9.714-10.9L252 53.857zm-5.362 12.562l39.84 41.6l-112.8 126.558L17 54.162l41.815-41.6z"/>
@@ -744,23 +730,22 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zod</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zod</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Schema Validation</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
 
                             {/* 8. Nodemailer (Official Green Mail Vector) */}
-                            <div className='group '>
+                            <div className='group'>
                                 <div className='flex flex-row items-center justify-between'>
-                                    <div className='flex flex-row gap-4 items-center justify-start'>
-                                        <div className="group relative w-6 h-6">
+                                    <div className='flex flex-row gap-2 sm:gap-2.5 md:gap-4 items-center justify-start min-w-0'>
+                                        <div className="group relative size-5 md:size-6 shrink-0">
                                             {/* GREY */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-0 md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-200"
                                                 fill="none"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -770,7 +755,7 @@ export function TechStack() {
                                             {/* COLOR */}
                                             <svg
                                                 viewBox="0 0 24 24"
-                                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                                className="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200"
                                                 fill="none"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -778,12 +763,11 @@ export function TechStack() {
                                             </svg>
                                         </div>
 
-                                        <h2 className='text-neutral-600 font-mono group-hover:text-neutral-400 transition duration-300 ease-in-out'>Nodemailer</h2>
+                                        <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Nodemailer</h2>
                                     </div>
-                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block ease-in-out">Email Services</span>
                                 </div>
 
-                                <div className='h-px bg-neutral-800 rounded-lg mt-2 w-full group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
+                                <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
                             </div>
                         </div>
                     </div>

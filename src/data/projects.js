@@ -3,7 +3,8 @@ export const projects = [
     id: "01",
     title: "Anviksha",
     category: "Featured • Academic Analytics Suite",
-    repoName: "anviksha",
+    repoName: "Anviksha",
+    tags: ["all", "fullstack", "academic"],
     description:
       "A modern GGSIPU result wrapper & academic analytics platform that transforms raw university portal data into actionable intelligence with Ordinance 11 SGPA/CGPA calculations, promotion risk monitoring, placement gatekeeper metrics, and zero-storage transcript exports.",
     tech: [
@@ -18,7 +19,7 @@ export const projects = [
       "jspdf"
     ],
     image: "/anviksha.png",
-    code: "https://github.com/HimanshuSingh213/anviksha",
+    code: "https://github.com/HimanshuSingh213/Anviksha",
     live: "https://anviksha-result.vercel.app/",
   },
 
@@ -27,6 +28,7 @@ export const projects = [
     title: "Anvaya Lab",
     category: "Featured • Full Stack API Client",
     repoName: "Anvaya-Lab",
+    tags: ["all", "fullstack", "tools"],
     description:
       "A secure, sandbox-first developer API testing client featuring client-side environment variables isolation, dual-execution proxy routing, dynamic syntax resolution, and a professional workspace settings engine.",
     tech: [
@@ -50,6 +52,7 @@ export const projects = [
     title: "DevToolkit AI",
     category: "Featured • AI Developer Toolkit",
     repoName: "DevToolkit-AI",
+    tags: ["all", "fullstack", "ai", "tools"],
     description:
       "An AI-powered developer toolkit offering intelligent utilities like README generation, commit message creation, regex assistance, and JSON formatting through a clean, modern SaaS workspace.",
     tech: [
@@ -75,6 +78,7 @@ export const projects = [
     title: "Vidyavriksha",
     category: "Featured • Full Stack Platform",
     repoName: "Vidyavriksha",
+    tags: ["all", "fullstack", "academic"],
     description:
       "A full-stack academic analytics platform built to help engineering students track semester performance, calculate target GPA/CGPA, and visualize academic progress through an interactive dashboard.",
     tech: [
@@ -97,6 +101,7 @@ export const projects = [
     title: "Inside Campus",
     category: "Featured • Team Lead • Hackathon",
     repoName: "inside-campus",
+    tags: ["all", "fullstack", "academic", "client-team"],
     description:
       "Built during a hackathon where I served as Team Lead. A platform enabling senior students to share guidance on academics, professors, internships, scholarships, placements, and campus opportunities with juniors.",
     tech: [
@@ -116,6 +121,7 @@ export const projects = [
     title: "Sutra Ecom",
     category: "Featured • MERN E-Commerce",
     repoName: "Sutra-MyECom-Website",
+    tags: ["all", "fullstack"],
     description:
       "A full-stack MERN e-commerce application featuring authentication, product management, shopping cart functionality, and a responsive user experience.",
     tech: [
@@ -139,6 +145,7 @@ export const projects = [
     title: "TVGF Website",
     category: "Client Project",
     repoName: "TVGF_Testing",
+    tags: ["all", "client-team"],
     description:
       "A collaborative project developed as part of ACM DevSource Club to redesign and modernize the official website for The Voice of Glacier Foundation.",
     tech: [
@@ -159,6 +166,7 @@ export const projects = [
     title: "Portfolio Website",
     category: "Personal Portfolio",
     repoName: "PortFolio",
+    tags: ["all", "tools"],
     description:
       "My personal developer portfolio showcasing projects, technical skills, and experience with a clean modern UI and responsive design.",
     tech: [
@@ -179,6 +187,7 @@ export const projects = [
     title: "Weather App",
     category: "API Integration",
     repoName: "Weather-App",
+    tags: ["all", "tools"],
     description:
       "A weather application that fetches and displays real-time weather data using the OpenWeather API with a clean and responsive interface.",
     tech: [
@@ -197,6 +206,7 @@ export const projects = [
     title: "PostFinder",
     category: "JavaScript Project",
     repoName: "Post-Finder",
+    tags: ["all", "tools"],
     description:
       "A lightweight JavaScript application that enables users to search and filter posts instantly with a fast and responsive interface.",
     tech: [

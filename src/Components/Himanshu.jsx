@@ -5,11 +5,14 @@ import Lenis from '@studio-freight/lenis';
 import Preloader from './layout/Preloader';
 import MagneticDock from './layout/MagneticDock';
 import Footer from './layout/Footer';
+import ResumeModal from './common/ResumeModal';
+import { ResumeProvider } from '../context/ResumeContext';
 
 import Hero from './sections/Hero';
 import About from './sections/About';
 import TechStack from './sections/TechStack';
 import ProjectsSection from './sections/ProjectsSection';
+import Background from './sections/Background';
 import GithubActivity from './sections/GithubActivity';
 import ContactSection from './sections/ContactSection';
 
@@ -76,27 +79,33 @@ export function Himanshu() {
     };
 
     return (
-        <div className='bg-neutral-950 flex flex-col items-center himanshu'>
-            {/* Preloader */}
-            <Preloader done={done} onComplete={handlePreloaderComplete} />
+        <ResumeProvider>
+            <div className='bg-neutral-950 flex flex-col items-center himanshu'>
+                {/* Preloader */}
+                <Preloader done={done} onComplete={handlePreloaderComplete} />
 
-            {/* Main Site Container */}
-            <main className='container mx-auto lg:max-w-5xl max-w-screen min-h-screen px-4 lg:p-0 pt-0 lg:pt-0'>
-                <Hero />
-                <About />
-                <TechStack />
-                <ProjectsSection />
-                <GithubActivity />
-                <ContactSection />
-                <Footer />
+                {/* Main Site Container */}
+                <main className='container mx-auto lg:max-w-5xl max-w-screen min-h-screen px-4 lg:p-0 pt-0 lg:pt-0'>
+                    <Hero />
+                    <About />
+                    <TechStack />
+                    <ProjectsSection />
+                    <Background />
+                    <GithubActivity />
+                    <ContactSection />
+                    <Footer />
 
-                {/* Dock Bottom Fade Overlay & Magnetic Dock */}
-                <div className="fixed bottom-0 left-0 right-0 h-32 bg-linear-to-t from-neutral-950 via-neutral-950/80 to-transparent z-40 pointer-events-none" />
-                <AnimatePresence>
-                    {done && <MagneticDock />}
-                </AnimatePresence>
-            </main>
-        </div>
+                    {/* Dock Bottom Fade Overlay & Magnetic Dock */}
+                    <div className="fixed bottom-0 left-0 right-0 h-32 bg-linear-to-t from-neutral-950 via-neutral-950/80 to-transparent z-40 pointer-events-none" />
+                    <AnimatePresence>
+                        {done && <MagneticDock />}
+                    </AnimatePresence>
+                </main>
+
+                {/* In-App Interactive Resume Preview Modal */}
+                <ResumeModal />
+            </div>
+        </ResumeProvider>
     );
 }
 

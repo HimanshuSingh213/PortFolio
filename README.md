@@ -75,42 +75,6 @@ A modern, high-performance developer portfolio showcasing full-stack engineering
 
 ---
 
-## Getting Started
-
-### Prerequisites
-- Node.js (version 18.x or higher)
-- npm, yarn, or pnpm
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/HimanshuSingh213/PortFolio.git
-   cd PortFolio
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start local development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Generate production build:
-   ```bash
-   npm run build
-   ```
-
-5. Preview production build locally:
-   ```bash
-   npm run preview
-   ```
-
----
-
 ## Author
 
 **Himanshu Singh Dangi**

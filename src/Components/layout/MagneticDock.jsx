@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from "motion/react";
+import { siteConfig } from '../../config/site';
+import { useResume } from '../../context/ResumeContext';
 
 const XIcon = ({ className = "size-4", ...props }) => (
     <svg
@@ -71,26 +73,51 @@ const WorkIcon = ({ className = "size-4", ...props }) => (
     </svg>
 );
 
+const ResumeIcon = ({ className = "size-4", ...props }) => (
+    <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+        <line x1="10" y1="9" x2="8" y2="9" />
+    </svg>
+);
+
 const ICONS = [
     {
-        src: <HomeIcon className="size-5" />,
+        src: <HomeIcon className="size-4 sm:size-4.5 md:size-5" />,
         label: "Home",
         action: "scroll-top",
     },
     {
-        src: <WorkIcon className="size-5" />,
+        src: <WorkIcon className="size-4 sm:size-4.5 md:size-5" />,
         label: "Work",
         action: "scroll-to-Work",
     },
     {
-        src: <GithubIcon className="size-5" />,
+        src: <GithubIcon className="size-4 sm:size-4.5 md:size-5" />,
         label: "GitHub",
         href: "https://github.com/HimanshuSingh213",
     },
     {
-        src: <XIcon className="size-5" />,
+        src: <XIcon className="size-4 sm:size-4.5 md:size-5" />,
         label: "X",
         href: "https://x.com/HimanshuInTech",
+    },
+    {
+        src: <ResumeIcon className="size-4 sm:size-4.5 md:size-5" />,
+        label: "Resume",
+        action: "open-resume",
+        href: siteConfig.resumeUrl,
     },
 ];
 
@@ -111,9 +138,9 @@ function Tooltip({ children, label }) {
                         initial={{ opacity: 0, y: 5, scale: 0.9 }}
                         animate={{ opacity: 1, y: -35, scale: 1 }}
                         exit={{ opacity: 0, y: 5, scale: 0.9 }}
-                        className="absolute z-50 pointer-events-none"
+                        className="absolute z-50 pointer-events-none hidden md:block"
                     >
-                        <div className="bg-zinc-900 border border-zinc-800 text-zinc-200 text-[11px] px-2 py-1 rounded shadow-xl whitespace-nowrap font-medium">
+                        <div className="bg-zinc-900 border border-zinc-800 text-zinc-200 text-[11px] px-2 py-1 rounded shadow-xl whitespace-nowrap font-medium font-mono">
                             {label}
                             <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 w-2 h-2 bg-zinc-900 border-r border-b border-zinc-800 rotate-45" />
                         </div>
@@ -126,6 +153,7 @@ function Tooltip({ children, label }) {
 
 function DockItem({ mouseX, src, label, href, action }) {
     const ref = useRef(null);
+    const { openResume } = useResume();
 
     const distance = useTransform(mouseX, (x) => {
         const bounds = ref.current?.getBoundingClientRect();
@@ -133,8 +161,8 @@ function DockItem({ mouseX, src, label, href, action }) {
         return x - (bounds.left + bounds.width / 2);
     });
 
-    const rawScale = useTransform(distance, [-100, 0, 100], [1, 1.1, 1]);
-    const rawMargin = useTransform(distance, [-120, 0, 120], [6, 14, 6]);
+    const rawScale = useTransform(distance, [-100, 0, 100], [1, 1.15, 1]);
+    const rawMargin = useTransform(distance, [-100, 0, 100], [1, 6, 1]);
 
     const scale = useSpring(rawScale, { stiffness: 180, damping: 26 });
     const marginX = useSpring(rawMargin, { stiffness: 160, damping: 28 });
@@ -147,11 +175,11 @@ function DockItem({ mouseX, src, label, href, action }) {
             marginRight: marginX,
         },
         className:
-            "group flex items-center justify-center w-9 h-9 rounded-xl cursor-pointer transition-colors hover:bg-neutral-800"
+            "group flex items-center justify-center size-8 sm:size-8.5 md:size-9 rounded-xl cursor-pointer transition-colors hover:bg-neutral-800 shrink-0 active:scale-95"
     };
 
     const content = (
-        <div className="text-neutral-400 group-hover:text-white transition-colors">
+        <div className="text-neutral-400 group-hover:text-white transition-colors flex items-center justify-center">
             {src}
         </div>
     );
@@ -161,7 +189,7 @@ function DockItem({ mouseX, src, label, href, action }) {
             {action ? (
                 <motion.button
                     {...commonProps}
-                    onClick={() => {
+                    onClick={(e) => {
                         if (action === "scroll-top") {
                             window.scrollTo({ top: 0, behavior: "smooth" });
                         }
@@ -171,6 +199,10 @@ function DockItem({ mouseX, src, label, href, action }) {
                                 behavior: "smooth",
                                 block: "start"
                             });
+                        }
+
+                        if (action === "open-resume") {
+                            openResume(e);
                         }
                     }}
                 >
@@ -206,16 +238,16 @@ export function MagneticDock() {
                 delay: 0.2,
             }}
             style={{ transformOrigin: "50% 100%" }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-90"
+            className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-90 max-w-[calc(100vw-24px)]"
             onMouseMove={(e) => mouseX.set(e.clientX)}
             onMouseLeave={() => mouseX.set(Infinity)}
         >
-            <div className="flex items-center px-1 py-2 rounded-3xl bg-neutral-900 backdrop-blur-md border border-white/10">
+            <div className="flex items-center px-1.5 sm:px-2 py-1.5 sm:py-2 rounded-2xl sm:rounded-3xl bg-neutral-900/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80">
                 {ICONS.map((icon, i) => (
                     <React.Fragment key={i}>
                         <DockItem mouseX={mouseX} {...icon} />
                         {i !== ICONS.length - 1 && (
-                            <div className="h-5 w-px bg-neutral-700 mx-3" />
+                            <div className="h-3.5 sm:h-4 md:h-5 w-px bg-neutral-800 mx-0.5 sm:mx-1 md:mx-2 shrink-0" />
                         )}
                     </React.Fragment>
                 ))}

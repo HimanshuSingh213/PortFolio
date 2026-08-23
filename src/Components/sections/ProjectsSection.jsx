@@ -13,7 +13,7 @@ const renderDescription = (text) => {
 };
 
 const timeAgo = (dateString) => {
-    if (!dateString) return "";
+    if (!dateString) return null;
     const date = new Date(dateString);
     const now = new Date();
     const diffMs = now - date;
@@ -25,18 +25,34 @@ const timeAgo = (dateString) => {
     if (diffSecs < 60) return "just now";
     if (diffMins < 60) return `${diffMins}m ago`;
     if (diffHours < 24) return `${diffHours}h ago`;
-    if (diffDays < 30) return `${diffDays}d ago`;
+    if (diffDays <= 30) return `${diffDays}d ago`;
 
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return null;
 };
 
+const CATEGORIES = [
+    { id: "all", label: "All" },
+    { id: "fullstack", label: "Full-Stack" },
+    { id: "ai", label: "AI & LLMs" },
+    { id: "academic", label: "Academic" },
+    { id: "tools", label: "Tools & APIs" },
+    { id: "client-team", label: "Client & Team" },
+];
+
 export function ProjectsSection() {
+    const [activeCategory, setActiveCategory] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
     const [githubData, setGithubData] = useState({});
+
+    const filteredProjects = projects.filter(project => {
+        if (activeCategory === "all") return true;
+        return project.tags?.includes(activeCategory);
+    });
+
     const projectsPerPage = 2;
-    const totalPages = Math.ceil(projects.length / projectsPerPage);
+    const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
     const startIndex = (currentPage - 1) * projectsPerPage;
-    const selectedProjects = projects.slice(startIndex, startIndex + projectsPerPage);
+    const selectedProjects = filteredProjects.slice(startIndex, startIndex + projectsPerPage);
 
     useEffect(() => {
         const fetchGithubRepos = async () => {
@@ -46,10 +62,12 @@ export function ProjectsSection() {
                     const repos = await response.json();
                     const dataMap = {};
                     repos.forEach(repo => {
-                        dataMap[repo.name] = {
+                        const info = {
                             pushed_at: repo.pushed_at,
                             language: repo.language
                         };
+                        dataMap[repo.name] = info;
+                        dataMap[repo.name.toLowerCase()] = info;
                     });
                     setGithubData(dataMap);
                 }
@@ -61,9 +79,13 @@ export function ProjectsSection() {
         fetchGithubRepos();
     }, []);
 
+    const handleCategoryChange = (catId) => {
+        setActiveCategory(catId);
+        setCurrentPage(1);
+    };
+
     return (
         <div>
-            {/* Work Header */}
             <div id='work' className='lg:text-8xl text-6xl text-neutral-800 relative top-7 font-inter font-bold h-full z-60 pointer-events-none select-none'>
                 WORK
             </div>
@@ -72,14 +94,45 @@ export function ProjectsSection() {
             </div>
             <div style={{ marginLeft: "10px", marginTop: "6px", height: "1px" }} className='bg-neutral-200 rounded-lg w-12'></div>
             
-            <div className='flex flex-col gap-24 mt-16'>
+            <div className="flex flex-wrap items-center gap-2 mt-10 mb-2">
+                {CATEGORIES.map((cat) => {
+                    const count = cat.id === "all" 
+                        ? projects.length 
+                        : projects.filter(p => p.tags?.includes(cat.id)).length;
+                    
+                    if (count === 0) return null;
+
+                    const isActive = activeCategory === cat.id;
+
+                    return (
+                        <button
+                            key={cat.id}
+                            onClick={() => handleCategoryChange(cat.id)}
+                            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer border ${
+                                isActive
+                                    ? "bg-neutral-900 border-amber-500/50 text-amber-400 font-semibold shadow-[0_0_12px_rgba(245,158,11,0.1)]"
+                                    : "bg-neutral-950/40 border-neutral-900 text-neutral-500 hover:text-neutral-300 hover:border-neutral-800"
+                            }`}
+                        >
+                            <span>{cat.label}</span>
+                            <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                                isActive ? "bg-amber-500/20 text-amber-300" : "bg-neutral-900 text-neutral-600"
+                            }`}>
+                                {count}
+                            </span>
+                        </button>
+                    );
+                })}
+            </div>
+
+            <div className='flex flex-col gap-24 mt-12'>
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={currentPage}
+                        key={`${activeCategory}-${currentPage}`}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -30 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="flex flex-col gap-24"
                     >
                         {selectedProjects.map((project, index) => {
@@ -93,15 +146,10 @@ export function ProjectsSection() {
                                     transition={{ duration: 0.7, ease: [0.215, 0.610, 0.355, 1] }}
                                     className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16 w-full group`}
                                 >
-                                    {/* Image Showcase Container */}
                                     <div className="relative w-full lg:w-1/2 min-h-55 sm:min-h-70 md:min-h-85 rounded-3xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-950/60 overflow-hidden flex items-center justify-center p-6 md:p-12 transition-all duration-500 shadow-2xl shadow-black/50 hover:border-neutral-800 group/img">
-                                        {/* Radial glow background on hover */}
                                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.05)_0%,transparent_70%)] opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                                        
-                                        {/* Premium subtle tech grid overlay */}
                                         <div className="absolute inset-0 opacity-[0.02] group-hover/img:opacity-[0.04] transition-opacity duration-500 pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-size-[16px_16px]" />
                                         
-                                        {/* ID badge */}
                                         <div className="absolute top-4 right-6 font-mono text-4xl md:text-5xl font-extrabold text-neutral-800/40 select-none group-hover/img:text-amber-500/20 transition-all duration-500">
                                             {project.id}
                                         </div>
@@ -118,9 +166,7 @@ export function ProjectsSection() {
                                         />
                                     </div>
 
-                                    {/* Text Info Column */}
                                     <div className="w-full lg:w-1/2 flex flex-col space-y-5 justify-center py-4">
-                                        {/* Category, Title & Live Status */}
                                         <div className="space-y-1">
                                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
                                                 <div className="flex items-center gap-2">
@@ -134,30 +180,45 @@ export function ProjectsSection() {
                                                     )}
                                                 </div>
                                                 
-                                                {/* Live GitHub Commit Tracking Indicator */}
-                                                {githubData[project.repoName] ? (
-                                                    <div className="flex items-center gap-1.5 text-[10px] font-geist text-neutral-500 bg-neutral-950/40 px-2.5 py-0.5 border border-neutral-900 rounded-full select-none">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                                                        <span>active {timeAgo(githubData[project.repoName].pushed_at)}</span>
-                                                    </div>
-                                                ) : (
-                                                    <div className="flex items-center gap-1.5 text-[10px] font-geist text-neutral-600 bg-neutral-950/40 px-2.5 py-0.5 border border-neutral-950 rounded-full select-none">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
-                                                        <span>tracked on GitHub</span>
-                                                    </div>
-                                                )}
+                                                {(() => {
+                                                    const repoInfo = githubData[project.repoName] || (project.repoName && githubData[project.repoName.toLowerCase()]);
+                                                    const recentActivity = repoInfo?.pushed_at ? timeAgo(repoInfo.pushed_at) : null;
+
+                                                    if (recentActivity) {
+                                                        return (
+                                                            <div className="flex items-center gap-1.5 text-[10px] font-geist text-neutral-400 bg-neutral-950/60 px-2.5 py-0.5 border border-neutral-900 rounded-full select-none">
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                                                <span>active {recentActivity}</span>
+                                                            </div>
+                                                        );
+                                                    }
+
+                                                    if (project.live) {
+                                                        return (
+                                                            <div className="flex items-center gap-1.5 text-[10px] font-geist text-neutral-400 bg-neutral-950/60 px-2.5 py-0.5 border border-neutral-900 rounded-full select-none">
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 shadow-[0_0_6px_rgba(16,185,129,0.3)]" />
+                                                                <span>production</span>
+                                                            </div>
+                                                        );
+                                                    }
+
+                                                    return (
+                                                        <div className="flex items-center gap-1.5 text-[10px] font-geist text-neutral-500 bg-neutral-950/60 px-2.5 py-0.5 border border-neutral-900 rounded-full select-none">
+                                                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-700" />
+                                                            <span>open source</span>
+                                                        </div>
+                                                    );
+                                                })()}
                                             </div>
                                             <h3 className="text-neutral-100 text-3xl md:text-5xl font-bold tracking-tight font-space group-hover:text-amber-500 transition-colors duration-300">
                                                 {project.title}
                                             </h3>
                                         </div>
 
-                                        {/* Description with rendered markdown italics */}
                                         <p className="text-neutral-400 text-base md:text-lg font-space leading-relaxed font-light">
                                             {renderDescription(project.description)}
                                         </p>
 
-                                        {/* Tech badges */}
                                         <div className="flex flex-wrap gap-2 pt-2">
                                             {project.tech.map((techItem) => (
                                                 <span
@@ -170,7 +231,6 @@ export function ProjectsSection() {
                                             ))}
                                         </div>
 
-                                        {/* Redirect Buttons */}
                                         <div className="flex flex-wrap items-center gap-3 pt-2">
                                             <a
                                                 href={project.code}
@@ -205,7 +265,6 @@ export function ProjectsSection() {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Pagination Controls */}
                 {totalPages > 1 && (
                     <div className="flex flex-wrap justify-center items-center gap-3 mt-8 font-space select-none">
                         <button 
@@ -230,7 +289,7 @@ export function ProjectsSection() {
                                     className={`w-9 h-9 rounded-xl border font-mono transition-all duration-500 text-xs cursor-pointer ${
                                         currentPage === pageNum 
                                             ? 'border-amber-500/50 bg-neutral-900 text-amber-500 font-bold shadow-[0_0_12px_rgba(245,158,11,0.1)]' 
-                                            : 'border-neutral-900 text-neutral-500 hover:text-white hover:border-neutral-800 bg-neutral-950/20'
+                                             : 'border-neutral-900 text-neutral-500 hover:text-white hover:border-neutral-800 bg-neutral-950/20'
                                     }`}
                                 >
                                     {pageNum < 10 ? `0${pageNum}` : pageNum}
