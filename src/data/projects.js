@@ -2,21 +2,23 @@ export const projects = [
   {
     id: "01",
     title: "Anviksha",
-    category: "Featured • Academic Analytics Suite",
+    category: "Featured • Multi-Ordinance Academic Engine",
     repoName: "Anviksha",
-    tags: ["all", "fullstack", "academic"],
+    tags: ["all", "fullstack", "academic", "tools"],
     description:
-      "A modern GGSIPU result wrapper & academic analytics platform that transforms raw university portal data into actionable intelligence with Ordinance 11 SGPA/CGPA calculations, promotion risk monitoring, placement gatekeeper metrics, and zero-storage transcript exports.",
+      "A privacy-first academic analytics platform and exam portal proxy powered by an *ordinance-based multi-programme engine* covering GGSIPU semester and medical degrees (Ord. 11, 15, 16, 22, 24, 31, 38). Features *zero-storage SHA-256 session proxies*, fail-closed verification states, live credit adjustments, statutory promotion monitoring, placement benchmarking, and *client-side transcript generation*.",
     tech: [
       "Next.js",
       "TypeScript",
       "React",
-      "Tailwind CSS",
+      "Tailwind CSS v4",
       "Zustand",
-      "Framer Motion",
       "Recharts",
+      "Framer Motion",
       "Cheerio",
-      "jspdf"
+      "Vitest",
+      "Zod",
+      "jsPDF"
     ],
     image: "/anviksha.png",
     code: "https://github.com/HimanshuSingh213/Anviksha",

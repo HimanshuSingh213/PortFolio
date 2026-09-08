@@ -31,3 +31,5 @@ dist-ssr
 *.sln
 *.sw?
 REFERENCE_ORIGINAL_Himanshu.jsx
+.vercel
+.env*

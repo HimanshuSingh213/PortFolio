@@ -66,6 +66,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>JavaScript</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">ES6+</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -127,6 +128,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>TypeScript</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Structural Typing</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -166,6 +168,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>React.js</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">v19+, Server Components</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -203,6 +206,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Next.js</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">App Router</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -240,6 +244,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Tailwind CSS</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Design Systems</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -277,6 +282,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Framer Motion</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Complex Animations</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -320,6 +326,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zustand</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">State Management</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -358,6 +365,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Recharts</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Data Visualization</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -410,6 +418,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Node.js</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Runtime</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -449,6 +458,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Express.js</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">API Development</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -511,6 +521,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Python</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Scripting & AI</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -614,6 +625,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>MongoDB</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Document Store</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -659,6 +671,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>AI & LLMs</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Gemini & Groq</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -699,6 +712,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Auth.js</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">OAuth & Sessions</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -732,6 +746,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Zod</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Schema Validation</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>
@@ -765,6 +780,7 @@ export function TechStack() {
 
                                         <h2 className='text-neutral-300 md:text-neutral-600 font-mono text-xs sm:text-sm md:text-sm truncate md:group-hover:text-neutral-400 transition duration-300 ease-in-out'>Nodemailer</h2>
                                     </div>
+                                    <span className="text-xs font-geist text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block ease-in-out whitespace-nowrap">Email Delivery</span>
                                 </div>
 
                                 <div className='h-px bg-neutral-800 rounded-lg mt-1.5 md:mt-2 w-full md:group-hover:bg-neutral-500 transition duration-300 ease-in-out'></div>

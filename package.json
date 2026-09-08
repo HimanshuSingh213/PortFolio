@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.25.0",
+    "lenis": "^1.3.26",
     "lucide-react": "^0.562.0",
     "motion": "^12.24.10",
     "react": "^19.2.0",
