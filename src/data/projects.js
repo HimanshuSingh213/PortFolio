@@ -179,7 +179,7 @@ export const projects = [
       "React Router",
       "React Icons"
     ],
-    image: "https://pbs.twimg.com/profile_images/1956445565006295040/cumepmWE_400x400.jpg",
+    image: "/avatar.jpg",
     code: "https://github.com/HimanshuSingh213/PortFolio",
     live: "https://himanshusinghdangi.vercel.app/",
   },

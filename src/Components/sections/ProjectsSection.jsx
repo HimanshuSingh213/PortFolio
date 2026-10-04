@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "motion/react";
 import { Github, ArrowUpRight } from 'lucide-react';
 import { projects } from '../../data/projects';
+import { slugify } from '../../utils/slug';
 
 const renderDescription = (text) => {
     const parts = text.split(/\*(.*?)\*/g);
@@ -211,7 +212,12 @@ export function ProjectsSection() {
                                                 })()}
                                             </div>
                                             <h3 className="text-neutral-100 text-3xl md:text-5xl font-bold tracking-tight font-space group-hover:text-amber-500 transition-colors duration-300">
-                                                {project.title}
+                                                <a
+                                                    href={`/projects/${slugify(project.title)}/`}
+                                                    className="hover:text-amber-500 transition-colors duration-300"
+                                                >
+                                                    {project.title}
+                                                </a>
                                             </h3>
                                         </div>
 
@@ -240,6 +246,12 @@ export function ProjectsSection() {
                                             >
                                                 <Github className="w-4 h-4" />
                                                 CODE
+                                            </a>
+                                            <a
+                                                href={`/projects/${slugify(project.title)}/`}
+                                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-100 transition-all duration-300 text-sm font-space font-semibold"
+                                            >
+                                                DETAILS
                                             </a>
                                             {project.status === "wip" ? (
                                                 <div className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-dashed border-neutral-900 text-neutral-500 font-space font-semibold text-sm select-none cursor-not-allowed">
