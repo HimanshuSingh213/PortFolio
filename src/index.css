@@ -7,6 +7,27 @@
   --font-space: "Space Grotesk", "Inter", "sans-serif";
 }
 
+@theme static {
+  --color-accent: #c9a96e;   /* champagne */
+  --color-accent-2: #8d9bff; /* periwinkle */
+  --color-accent-3: #6ec1e4; /* sky */
+}
+
+
+/* Syntax highlighting theme */
+.hljs { color: #f0f3f6; background: #0d1117; }
+.hljs-comment, .hljs-quote { color: #9198a1; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-doctag, .hljs-formula { color: #ff7b72; }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta .hljs-string { color: #a5d6ff; }
+.hljs-number, .hljs-literal, .hljs-variable, .hljs-template-variable, .hljs-selector-attr, .hljs-selector-pseudo { color: #79c0ff; }
+.hljs-title, .hljs-title.class_, .hljs-title.function_, .hljs-section { color: #d2a8ff; }
+.hljs-type, .hljs-class .hljs-title, .hljs-built_in, .hljs-selector-class { color: #ffa657; }
+.hljs-tag, .hljs-name, .hljs-meta, .hljs-meta .hljs-keyword { color: #8b949e; }
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-sub, .hljs-attr { color: #79c0ff; }
+.hljs-deletion { color: #ffdcd7; background: #67060c; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 600; }
+
 @import "tailwindcss";
 
 @layer base {
@@ -16,14 +37,27 @@
     box-sizing: border-box;
   }
 
+  /* Monochrome white focus rings */
+  :focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
   html,
   body {
     background-color: #0a0a0a;
     color: #ffffff;
   }
+
+  /* Hide main page scrollbar when modal is open */
+  html.modal-open,
+  body.modal-open {
+    overflow: hidden !important;
+  }
 }
 
-/* Custom Scrollbar - Dark seamless track & capsule thumb */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

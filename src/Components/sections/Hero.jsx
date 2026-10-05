@@ -39,7 +39,7 @@ export function Hero() {
                 <img
                     className='size-25 rounded-full border-2 border-neutral-900 shadow-xl'
                     src="https://pbs.twimg.com/profile_images/1956445565006295040/cumepmWE_400x400.jpg"
-                    alt="dp"
+                    alt="Himanshu Singh Dangi"
                 />
 
                 <div className='flex flex-col'>

@@ -6,6 +6,12 @@ function HTMLContent({ onDone }) {
     const rounded = useTransform(count, v => `${Math.round(v)}%`);
 
     useEffect(() => {
+        // Skip preloader if user prefers reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            onDone();
+            return;
+        }
+
         const controls = animate(count, 100, {
             duration: 3,
             onComplete: onDone,
@@ -14,7 +20,11 @@ function HTMLContent({ onDone }) {
     }, []);
 
     return (
-        <motion.pre className='font-poppins md:text-[250px] text-6xl' style={{ color: "#fff", fontWeight: 600 }}>
+        <motion.pre
+            aria-hidden="true"
+            className='font-poppins md:text-[250px] text-6xl'
+            style={{ color: "#fff", fontWeight: 600 }}
+        >
             {rounded}
         </motion.pre>
     );
@@ -25,6 +35,7 @@ export function Preloader({ done, onComplete }) {
         <AnimatePresence>
             {!done && (
                 <motion.div
+                    aria-hidden="true"
                     className="fixed inset-0 z-200 bg-neutral-950 flex justify-center items-center"
                     initial={{ y: 0 }}
                     animate={{ y: 0 }}

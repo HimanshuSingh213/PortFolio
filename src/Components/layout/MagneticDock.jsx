@@ -189,6 +189,7 @@ function DockItem({ mouseX, src, label, href, action }) {
             {action ? (
                 <motion.button
                     {...commonProps}
+                    aria-label={label}
                     onClick={(e) => {
                         if (action === "scroll-top") {
                             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -212,6 +213,7 @@ function DockItem({ mouseX, src, label, href, action }) {
                 <motion.a
                     {...commonProps}
                     href={href}
+                    aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -226,18 +228,8 @@ export function MagneticDock() {
     const mouseX = useMotionValue(Infinity);
 
     return (
-        <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{
-                type: "spring",
-                stiffness: 160,
-                damping: 20,
-                mass: 0.6,
-                delay: 0.2,
-            }}
-            style={{ transformOrigin: "50% 100%" }}
+        <nav
+            aria-label="Quick navigation"
             className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-90 max-w-[calc(100vw-24px)]"
             onMouseMove={(e) => mouseX.set(e.clientX)}
             onMouseLeave={() => mouseX.set(Infinity)}
@@ -247,12 +239,12 @@ export function MagneticDock() {
                     <React.Fragment key={i}>
                         <DockItem mouseX={mouseX} {...icon} />
                         {i !== ICONS.length - 1 && (
-                            <div className="h-3.5 sm:h-4 md:h-5 w-px bg-neutral-800 mx-0.5 sm:mx-1 md:mx-2 shrink-0" />
+                            <div aria-hidden="true" className="h-3.5 sm:h-4 md:h-5 w-px bg-neutral-800 mx-0.5 sm:mx-1 md:mx-2 shrink-0" />
                         )}
                     </React.Fragment>
                 ))}
             </div>
-        </motion.div>
+        </nav>
     );
 }
 

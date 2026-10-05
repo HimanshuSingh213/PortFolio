@@ -21,6 +21,7 @@ export const projects = [
       "jsPDF"
     ],
     image: "/anviksha.png",
+    shot: "/shots/anviksha.jpg",
     code: "https://github.com/HimanshuSingh213/Anviksha",
     live: "https://anviksha-result.vercel.app/",
   },
@@ -45,6 +46,7 @@ export const projects = [
       "Driver.js"
     ],
     image: "/anvaya-lab.png",
+    shot: "/shots/anvaya-lab.jpg",
     code: "https://github.com/HimanshuSingh213/Anvaya-Lab",
     live: "https://anvaya-lab.vercel.app/",
   },
@@ -71,6 +73,7 @@ export const projects = [
       "Zod"
     ],
     image: "/devtoolkit-ai.png",
+    shot: "/shots/devtoolkit-ai.jpg",
     code: "https://github.com/HimanshuSingh213/DevToolkit-AI",
     live: "https://dev-toolkit-ai.vercel.app",
   },
@@ -94,6 +97,7 @@ export const projects = [
       "Recharts"
     ],
     image: "/vidyavriksha.png",
+    shot: "/shots/vidyavriksha.jpg",
     code: "https://github.com/HimanshuSingh213/Vidyavriksha",
     live: "https://vidyavriksha.netlify.app/",
   },
@@ -114,6 +118,7 @@ export const projects = [
       "Lucide React"
     ],
     image: "/inside-campus.jpg",
+    shot: "/shots/inside-campus.jpg",
     code: "https://github.com/HimanshuSingh213/inside-campus",
     live: "https://inside-campus.vercel.app/",
   },
@@ -137,6 +142,7 @@ export const projects = [
     ],
     image:
       "https://github.com/HimanshuSingh213/Sutra-MyECom-Website/blob/main/Sutra%20React%20Ecom-WebApp/frontend/public/logo_sutra.png?raw=true",
+    shot: "/shots/sutra-ecom.jpg",
     code:
       "https://github.com/HimanshuSingh213/Sutra-MyECom-Website",
     live: "https://sutra-myecom-webapp.netlify.app/",
@@ -159,6 +165,7 @@ export const projects = [
       "Recharts"
     ],
     image: "/tvgf.png",
+    shot: "/shots/tvgf-website.jpg",
     code: "https://github.com/HimanshuSingh213/TVGF_Testing",
     live: "https://tvgf-testing.vercel.app/",
   },
@@ -180,6 +187,7 @@ export const projects = [
       "React Icons"
     ],
     image: "/avatar.jpg",
+    shot: "/shots/portfolio-website.jpg",
     code: "https://github.com/HimanshuSingh213/PortFolio",
     live: "https://himanshusinghdangi.vercel.app/",
   },
@@ -199,6 +207,7 @@ export const projects = [
       "OpenWeather API"
     ],
     image: "https://i.postimg.cc/ZR6TZwcw/image.png",
+    shot: "/shots/weather-app.jpg",
     code: "https://github.com/HimanshuSingh213/Weather-App",
     live: "https://getweather-appx.netlify.app/",
   },
@@ -218,6 +227,7 @@ export const projects = [
       "Fetch API"
     ],
     image: "https://i.postimg.cc/SsbhZWhW/poster2.png",
+    shot: "/shots/postfinder.jpg",
     code: "https://github.com/HimanshuSingh213/Post-Finder",
     live: "https://post-finder.netlify.app/",
   },

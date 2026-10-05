@@ -81,11 +81,19 @@ export function Himanshu() {
     return (
         <ResumeProvider>
             <div className='bg-neutral-950 flex flex-col items-center himanshu'>
+                {/* Accessible skip link */}
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:font-space focus:text-sm focus:font-semibold focus:text-neutral-950"
+                >
+                    Skip to content
+                </a>
+
                 {/* Preloader */}
                 <Preloader done={done} onComplete={handlePreloaderComplete} />
 
                 {/* Main Site Container */}
-                <main className='container mx-auto lg:max-w-5xl max-w-screen min-h-screen px-4 lg:p-0 pt-0 lg:pt-0'>
+                <main id="main-content" className='container mx-auto lg:max-w-5xl max-w-screen min-h-screen px-4 lg:p-0 pt-0 lg:pt-0'>
                     <Hero />
                     <About />
                     <TechStack />

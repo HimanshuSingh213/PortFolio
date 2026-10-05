@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "motion/react";
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { Github, ArrowUpRight } from 'lucide-react';
 import { projects } from '../../data/projects';
 import { slugify } from '../../utils/slug';
+
+// Lazy-load detail overlay to keep initial bundle small
+const loadOverlay = () => import('../common/ProjectDetailOverlay');
+const ProjectDetailOverlay = lazy(loadOverlay);
 
 const renderDescription = (text) => {
     const parts = text.split(/\*(.*?)\*/g);
@@ -44,6 +48,80 @@ export function ProjectsSection() {
     const [activeCategory, setActiveCategory] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
     const [githubData, setGithubData] = useState({});
+    const [activeSlug, setActiveSlug] = useState(null);
+
+    // Track history entry pushed by overlay
+    const pushedByUs = useRef(false);
+
+    const slugOf = (p) => slugify(p.title);
+    const findBySlug = (s) => projects.find((p) => slugOf(p) === s);
+    const hashSlug = () => {
+        const m = window.location.hash.match(/^#project-(.+)$/);
+        return m ? m[1] : null;
+    };
+
+    // Open detail overlay with pushState
+    const openProject = (project) => {
+        window.history.pushState({ project: slugOf(project) }, "", `#project-${slugOf(project)}`);
+        pushedByUs.current = true;
+        setActiveSlug(slugOf(project));
+    };
+
+    // Close detail overlay and sync history
+    const closeProject = () => {
+        if (pushedByUs.current) {
+            pushedByUs.current = false;
+            window.history.back();
+        } else {
+            window.history.replaceState(null, "", window.location.pathname + window.location.search);
+            setActiveSlug(null);
+        }
+    };
+
+    // Switch project and update history
+    const navigateProject = (project) => {
+        window.history.replaceState({ project: slugOf(project) }, "", `#project-${slugOf(project)}`);
+        setActiveSlug(slugOf(project));
+    };
+
+    useEffect(() => {
+        // Sync modal on browser back/forward
+        const onPopState = () => {
+            const slug = hashSlug();
+            pushedByUs.current = !!slug;
+            setActiveSlug(slug && findBySlug(slug) ? slug : null);
+        };
+        window.addEventListener("popstate", onPopState);
+
+        // Open overlay from initial URL hash
+        const initial = hashSlug();
+        if (initial && findBySlug(initial)) setActiveSlug(initial);
+
+        return () => window.removeEventListener("popstate", onPopState);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const isOverlayOpen = Boolean(activeSlug);
+
+    // Lock main page scrolling and hide main page scrollbar when detail overlay is open
+    useEffect(() => {
+        if (!isOverlayOpen) return;
+
+        const prevHtml = document.documentElement.style.overflow;
+        const prevBody = document.body.style.overflow;
+
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+        document.documentElement.classList.add("modal-open");
+        document.body.classList.add("modal-open");
+
+        return () => {
+            document.documentElement.style.overflow = prevHtml;
+            document.body.style.overflow = prevBody;
+            document.documentElement.classList.remove("modal-open");
+            document.body.classList.remove("modal-open");
+        };
+    }, [isOverlayOpen]);
 
     const filteredProjects = projects.filter(project => {
         if (activeCategory === "all") return true;
@@ -65,7 +143,7 @@ export function ProjectsSection() {
                     repos.forEach(repo => {
                         const info = {
                             pushed_at: repo.pushed_at,
-                            language: repo.language
+                            language: repo.language,
                         };
                         dataMap[repo.name] = info;
                         dataMap[repo.name.toLowerCase()] = info;
@@ -87,6 +165,18 @@ export function ProjectsSection() {
 
     return (
         <div>
+            {/* Detail overlay modal */}
+            <Suspense fallback={null}>
+                <AnimatePresence>
+                    {activeSlug && findBySlug(activeSlug) && (
+                        <ProjectDetailOverlay
+                            project={findBySlug(activeSlug)}
+                            onClose={closeProject}
+                            onNavigate={navigateProject}
+                        />
+                    )}
+                </AnimatePresence>
+            </Suspense>
             <div id='work' className='lg:text-8xl text-6xl text-neutral-800 relative top-7 font-inter font-bold h-full z-60 pointer-events-none select-none'>
                 WORK
             </div>
@@ -109,7 +199,10 @@ export function ProjectsSection() {
                         <button
                             key={cat.id}
                             onClick={() => handleCategoryChange(cat.id)}
-                            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer border ${
+                            aria-pressed={isActive}
+                            title={`Filter projects by ${cat.label}`}
+                            aria-label={`Filter projects by ${cat.label}`}
+                            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                                 isActive
                                     ? "bg-neutral-900 border-amber-500/50 text-amber-400 font-semibold shadow-[0_0_12px_rgba(245,158,11,0.1)]"
                                     : "bg-neutral-950/40 border-neutral-900 text-neutral-500 hover:text-neutral-300 hover:border-neutral-800"
@@ -128,7 +221,7 @@ export function ProjectsSection() {
 
             <div className='flex flex-col gap-24 mt-12'>
                 <AnimatePresence mode="wait">
-                    <motion.div
+                    <Motion.div
                         key={`${activeCategory}-${currentPage}`}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -139,7 +232,7 @@ export function ProjectsSection() {
                         {selectedProjects.map((project, index) => {
                             const isEven = index % 2 === 0;
                             return (
-                                <motion.div
+                                <Motion.div
                                     key={project.id}
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +248,7 @@ export function ProjectsSection() {
                                             {project.id}
                                         </div>
                                         
-                                        <motion.img
+                                        <Motion.img
                                             whileHover={{ scale: 1.05, rotate: isEven ? 1 : -1 }}
                                             transition={{ duration: 0.2, ease: "easeOut" }}
                                             className="max-h-40 sm:max-h-50 md:max-h-60 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] group-hover/img:drop-shadow-[0_20px_40px_rgba(245,158,11,0.15)] transition-all duration-300 select-none"
@@ -212,12 +305,7 @@ export function ProjectsSection() {
                                                 })()}
                                             </div>
                                             <h3 className="text-neutral-100 text-3xl md:text-5xl font-bold tracking-tight font-space group-hover:text-amber-500 transition-colors duration-300">
-                                                <a
-                                                    href={`/projects/${slugify(project.title)}/`}
-                                                    className="hover:text-amber-500 transition-colors duration-300"
-                                                >
-                                                    {project.title}
-                                                </a>
+                                                {project.title}
                                             </h3>
                                         </div>
 
@@ -242,16 +330,23 @@ export function ProjectsSection() {
                                                 href={project.code}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-100 transition-all duration-300 text-sm font-space font-semibold"
+                                                title={`View source code for ${project.title}`}
+                                                aria-label={`View source code for ${project.title}`}
+                                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-100 transition-all duration-300 text-sm font-space font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                                             >
                                                 <Github className="w-4 h-4" />
-                                                CODE
+                                                <span>CODE</span>
                                             </a>
                                             <a
                                                 href={`/projects/${slugify(project.title)}/`}
-                                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-100 transition-all duration-300 text-sm font-space font-semibold"
+                                                onMouseEnter={loadOverlay}
+                                                data-details-trigger
+                                                onClick={(e) => { e.preventDefault(); openProject(project); }}
+                                                title={`View details for ${project.title}`}
+                                                aria-label={`View details for ${project.title}`}
+                                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-900 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-100 transition-all duration-300 text-sm font-space font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                                             >
-                                                DETAILS
+                                                <span>DETAILS</span>
                                             </a>
                                             {project.status === "wip" ? (
                                                 <div className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-dashed border-neutral-900 text-neutral-500 font-space font-semibold text-sm select-none cursor-not-allowed">
@@ -263,7 +358,9 @@ export function ProjectsSection() {
                                                     href={project.live}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-neutral-950 font-space font-bold transition-all duration-300 text-sm shadow-lg hover:shadow-amber-500/10 hover:-translate-y-0.5"
+                                                    title={`Open live demo for ${project.title}`}
+                                                    aria-label={`Open live demo for ${project.title}`}
+                                                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-neutral-950 font-space font-bold transition-all duration-300 text-sm shadow-lg hover:shadow-amber-500/10 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                                                 >
                                                     <span>LIVE DEMO</span>
                                                     <ArrowUpRight className="w-4 h-4" />
@@ -271,10 +368,10 @@ export function ProjectsSection() {
                                             )}
                                         </div>
                                     </div>
-                                </motion.div>
+                                </Motion.div>
                             );
                         })}
-                    </motion.div>
+                    </Motion.div>
                 </AnimatePresence>
 
                 {totalPages > 1 && (
@@ -285,7 +382,9 @@ export function ProjectsSection() {
                                 document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             disabled={currentPage === 1}
-                            className="px-4 py-2 border border-neutral-900 hover:border-neutral-800 text-neutral-500 hover:text-white disabled:opacity-20 disabled:pointer-events-none rounded-xl transition-all duration-300 text-xs font-mono tracking-wider cursor-pointer"
+                            title="Previous page"
+                            aria-label="Previous page"
+                            className="px-4 py-2 border border-neutral-900 hover:border-neutral-800 text-neutral-500 hover:text-white disabled:opacity-20 disabled:pointer-events-none rounded-xl transition-all duration-300 text-xs font-mono tracking-wider cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                         >
                             PREV
                         </button>
@@ -298,10 +397,13 @@ export function ProjectsSection() {
                                         setCurrentPage(pageNum);
                                         document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className={`w-9 h-9 rounded-xl border font-mono transition-all duration-500 text-xs cursor-pointer ${
+                                    title={`Go to page ${pageNum}`}
+                                    aria-label={`Page ${pageNum} of ${totalPages}`}
+                                    aria-current={currentPage === pageNum ? 'page' : undefined}
+                                    className={`w-9 h-9 rounded-xl border font-mono transition-all duration-500 text-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                                         currentPage === pageNum 
                                             ? 'border-amber-500/50 bg-neutral-900 text-amber-500 font-bold shadow-[0_0_12px_rgba(245,158,11,0.1)]' 
-                                             : 'border-neutral-900 text-neutral-500 hover:text-white hover:border-neutral-800 bg-neutral-950/20'
+                                            : 'border-neutral-900 text-neutral-500 hover:text-white hover:border-neutral-800 bg-neutral-950/20'
                                     }`}
                                 >
                                     {pageNum < 10 ? `0${pageNum}` : pageNum}
@@ -315,7 +417,9 @@ export function ProjectsSection() {
                                 document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             disabled={currentPage === totalPages}
-                            className="px-4 py-2 border border-neutral-900 hover:border-neutral-800 text-neutral-500 hover:text-white disabled:opacity-20 disabled:pointer-events-none rounded-xl transition-all duration-300 text-xs font-mono tracking-wider cursor-pointer"
+                            title="Next page"
+                            aria-label="Next page"
+                            className="px-4 py-2 border border-neutral-900 hover:border-neutral-800 text-neutral-500 hover:text-white disabled:opacity-20 disabled:pointer-events-none rounded-xl transition-all duration-300 text-xs font-mono tracking-wider cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                         >
                             NEXT
                         </button>

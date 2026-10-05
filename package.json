@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+"dependencies": {
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.25.0",
@@ -18,9 +18,14 @@
     "motion": "^12.24.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-github-calendar": "^5.0.4",
+    "react-github-calendar": "^5.0.0",
     "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
     "react-tooltip": "^5.30.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gemoji": "^8.0.0",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
@@ -33,6 +38,9 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "highlight.js": "^11.12.0",
+    "marked": "^18.1.0",
+    "marked-highlight": "^2.2.4",
     "vite": "^7.2.4"
   }
 }
